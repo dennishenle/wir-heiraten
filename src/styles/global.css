@@ -1,1 +1,45 @@
 @import "tailwindcss";
+
+/* ─── Theme tokens ──────────────────────────────────────────────────────────── */
+
+@theme {
+	/* Romantic wedding palette */
+	--color-primary: #b76e79;
+	--color-primary-light: #d4a5a5;
+	--color-secondary: #c9a96e;
+	--color-secondary-light: #e8d5a3;
+	--color-cream: #faf7f2;
+	--color-cream-dark: #f0ebe3;
+	--color-text: #2d2926;
+	--color-text-light: #6b6462;
+
+	/* Typography */
+	--font-heading: "Playfair Display", serif;
+	--font-body: "Lato", sans-serif;
+}
+
+/* ─── Base resets & defaults ────────────────────────────────────────────────── */
+
+html {
+	scroll-behavior: smooth;
+}
+
+/* ─── Section utilities ─────────────────────────────────────────────────────
+   .section-padding  — consistent vertical + horizontal padding for sections
+   .section-title    — decorative heading style used by every section
+   ──────────────────────────────────────────────────────────────────────────── */
+
+@utility section-padding {
+	padding-block: 5rem;
+	padding-inline: 1.5rem;
+}
+
+@utility section-title {
+	font-family: var(--font-heading);
+	font-size: 2.25rem;
+	line-height: 1.2;
+	font-weight: 700;
+	color: var(--color-text);
+	text-align: center;
+	margin-bottom: 1rem;
+}
