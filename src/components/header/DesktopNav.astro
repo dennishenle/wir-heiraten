@@ -1,0 +1,12 @@
+---
+import NavigationBarLink from "./NavigationBarLink.astro";
+import { navLinks } from "./navLinks";
+---
+
+<ul class="hidden xl:flex items-center gap-5">
+    {
+        navLinks.map(({ href, label }) => (
+            <NavigationBarLink href={href} label={label} />
+        ))
+    }
+</ul>
