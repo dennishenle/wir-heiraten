@@ -1,4 +1,7 @@
 ---
+import MobileHamburger from "./MobileHamburger.astro";
+import NavigationBarLink from "./NavigationBarLink.astro";
+
 const navLinks = [
     { href: "#story", label: "Unsere Geschichte" },
     { href: "#timeline", label: "Zeitstrahl" },
@@ -29,34 +32,12 @@ const navLinks = [
         <ul class="hidden xl:flex items-center gap-5">
             {
                 navLinks.map(({ href, label }) => (
-                    <li>
-                        <a
-                            href={href}
-                            class="text-xs font-medium uppercase tracking-widest text-text/70 hover:text-primary transition-colors"
-                        >
-                            {label}
-                        </a>
-                    </li>
+                    <NavigationBarLink href={href} label={label} />
                 ))
             }
         </ul>
 
-        <!-- Mobile hamburger -->
-        <button
-            id="menu-toggle"
-            class="xl:hidden flex flex-col justify-center gap-1.5 p-2"
-            aria-label="Menü öffnen"
-            aria-expanded="false"
-        >
-            <span
-                class="block h-0.5 w-6 bg-text transition-all duration-300 origin-center"
-            ></span>
-            <span class="block h-0.5 w-6 bg-text transition-all duration-300"
-            ></span>
-            <span
-                class="block h-0.5 w-6 bg-text transition-all duration-300 origin-center"
-            ></span>
-        </button>
+        <MobileHamburger />
     </nav>
 
     <!-- Mobile overlay menu -->
