@@ -1,5 +1,10 @@
-<img
-	src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80"
+---
+import { Image } from "astro:assets";
+import heroBackground from "@/assets/svenja+dennis.jpg";
+---
+
+<Image
+	src={heroBackground}
 	alt=""
 	class="absolute inset-0 h-full w-full object-cover"
 	loading="eager"
@@ -7,6 +12,6 @@
 />
 
 <div
-	class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60"
+	class="absolute inset-0 bg-linear-to-b from-black/50 via-black/40 to-black/60"
 >
 </div>
