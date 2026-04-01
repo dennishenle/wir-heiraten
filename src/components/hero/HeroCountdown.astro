@@ -1,0 +1,75 @@
+<div id="countdown" class="mt-10 flex justify-center gap-6 sm:gap-10">
+	<div class="flex flex-col items-center">
+		<span id="cd-days" class="font-heading text-4xl font-bold md:text-5xl"
+			>---</span
+		>
+		<span class="mt-1 text-xs uppercase tracking-widest text-white/70"
+			>Tage</span
+		>
+	</div>
+	<div class="flex flex-col items-center">
+		<span id="cd-hours" class="font-heading text-4xl font-bold md:text-5xl"
+			>--</span
+		>
+		<span class="mt-1 text-xs uppercase tracking-widest text-white/70"
+			>Stunden</span
+		>
+	</div>
+	<div class="flex flex-col items-center">
+		<span
+			id="cd-minutes"
+			class="font-heading text-4xl font-bold md:text-5xl">--</span
+		>
+		<span class="mt-1 text-xs uppercase tracking-widest text-white/70"
+			>Minuten</span
+		>
+	</div>
+	<div class="flex flex-col items-center">
+		<span
+			id="cd-seconds"
+			class="font-heading text-4xl font-bold md:text-5xl">--</span
+		>
+		<span class="mt-1 text-xs uppercase tracking-widest text-white/70"
+			>Sekunden</span
+		>
+	</div>
+</div>
+
+<script>
+	const weddingDate = new Date("2026-08-29T14:00:00+02:00");
+
+	const $days = document.getElementById("cd-days")!;
+	const $hours = document.getElementById("cd-hours")!;
+	const $minutes = document.getElementById("cd-minutes")!;
+	const $seconds = document.getElementById("cd-seconds")!;
+
+	function pad(n: number): string {
+		return String(n).padStart(2, "0");
+	}
+
+	function tick() {
+		const diff = weddingDate.getTime() - Date.now();
+
+		if (diff <= 0) {
+			$days.textContent = "0";
+			$hours.textContent = "00";
+			$minutes.textContent = "00";
+			$seconds.textContent = "00";
+			return;
+		}
+
+		const totalSeconds = Math.floor(diff / 1000);
+		const days = Math.floor(totalSeconds / 86400);
+		const hours = Math.floor((totalSeconds % 86400) / 3600);
+		const minutes = Math.floor((totalSeconds % 3600) / 60);
+		const seconds = totalSeconds % 60;
+
+		$days.textContent = String(days);
+		$hours.textContent = pad(hours);
+		$minutes.textContent = pad(minutes);
+		$seconds.textContent = pad(seconds);
+	}
+
+	tick();
+	setInterval(tick, 1000);
+</script>
