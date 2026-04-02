@@ -20,7 +20,7 @@ export const milestones: Milestone[] = [
     {
         date: "Herbst 2018",
         title: "Das erste Date",
-        text: "Wenige Tage später ging es zusammen ins Kino — unser erstes richtiges Date. Was als aufgeregtes Kennenlernen begann, fühlte sich schnell an, als würden wir uns schon ewig kennen.",
+        text: "Wenige Tage später ging es zusammen ins Chimichanga — einen Mexikaner in Heidenheim. Unser erstes richtiges Date, und es war einfach magisch.",
         image: kinoPhoto,
     },
     {
