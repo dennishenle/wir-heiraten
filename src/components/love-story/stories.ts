@@ -1,8 +1,9 @@
 import engagementPhoto from "@/assets/engagement.jpeg";
+import quarktaschePhoto from "@/assets/quarktasche.jpg";
 
 export const stories = [
     {
-        image: engagementPhoto,
+        image: quarktaschePhoto,
         alt: "Wie wir uns kennenlernten",
         title: "Wie alles begann",
         text: `Es war ein ganz normaler Sommertag, als sich unsere Wege zum ersten Mal kreuzten.
