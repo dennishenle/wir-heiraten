@@ -1,7 +1,7 @@
 import rubihornPhoto from "@/assets/rubihorn.jpeg";
 import ulmPhoto from "@/assets/ulm.jpeg";
 import backereiPhoto from "@/assets/baeckerei.jpeg";
-import kinoPhoto from "@/assets/kino.jpeg";
+import mexicanFoodPhoto from "@/assets/mexicanfood.jpeg";
 
 export interface Milestone {
     date: string;
@@ -21,7 +21,7 @@ export const milestones: Milestone[] = [
         date: "Herbst 2018",
         title: "Das erste Date",
         text: "Wenige Tage später ging es zusammen ins Chimichanga — einen Mexikaner in Heidenheim. Unser erstes richtiges Date, und es war einfach magisch.",
-        image: kinoPhoto,
+        image: mexicanFoodPhoto,
     },
     {
         date: "Sommer 2022",
