@@ -1,0 +1,71 @@
+---
+import HeartDivider from "../love-story/HeartDivider.astro";
+import TimelineCard from "./TimelineCard.astro";
+import { milestones } from "./milestones.ts";
+---
+
+<section id="timeline" class="section-padding bg-cream">
+	<div class="mx-auto max-w-5xl">
+		<h2 class="section-title">Unsere gemeinsame Reise</h2>
+		<p class="mx-auto mb-4 max-w-xl text-center text-text-light">
+			Die wichtigsten Meilensteine auf unserem Weg zum Altar.
+		</p>
+
+		<HeartDivider />
+
+		{/* Mobile: left-aligned line + cards */}
+		<div class="relative md:hidden">
+			<div
+				class="absolute top-0 bottom-0 left-6 w-px bg-primary-light/50"
+			>
+			</div>
+			<div class="flex flex-col gap-12 pl-14">
+				{
+					milestones.map((m) => (
+						<div class="relative">
+							<div class="absolute -left-14 top-1 flex items-center justify-center">
+								<div class="size-4 rounded-full border-4 border-primary bg-white shadow-sm" />
+							</div>
+							<span class="inline-block rounded-full bg-primary-light/30 px-4 py-1 font-heading text-sm font-semibold text-primary">
+								{m.date}
+							</span>
+							<h3 class="mt-3 font-heading text-xl font-semibold text-text">
+								{m.title}
+							</h3>
+							<p class="mt-2 leading-relaxed text-text-light">
+								{m.text}
+							</p>
+							<img
+								src={m.image}
+								alt={m.title}
+								class="mt-4 size-32 rounded-full object-cover shadow-md ring-4 ring-white"
+								loading="lazy"
+							/>
+						</div>
+					))
+				}
+			</div>
+		</div>
+
+		{/* Desktop: centre-line alternating cards */}
+		<div class="relative hidden md:block">
+			<div
+				class="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-primary-light/50"
+			>
+			</div>
+			<div class="flex flex-col gap-16">
+				{
+					milestones.map((m, i) => (
+						<TimelineCard
+							date={m.date}
+							title={m.title}
+							text={m.text}
+							image={m.image}
+							position={i % 2 === 0 ? "left" : "right"}
+						/>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>
