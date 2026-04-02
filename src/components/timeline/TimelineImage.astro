@@ -1,0 +1,28 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+	src: ImageMetadata;
+	alt: string;
+	size?: "sm" | "md";
+}
+
+const { src, alt, size = "md" } = Astro.props;
+
+const sizeClasses = {
+	sm: "size-32",
+	md: "size-48 md:size-40",
+};
+---
+
+<Image
+	src={src}
+	alt={alt}
+	width={192}
+	height={192}
+	class:list={[
+		"rounded-full object-cover shadow-md ring-4 ring-white",
+		sizeClasses[size],
+	]}
+	loading="lazy"
+/>

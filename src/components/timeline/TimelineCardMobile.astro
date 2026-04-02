@@ -1,40 +1,24 @@
 ---
-import { Image } from "astro:assets";
+import TimelineCardContent from "./TimelineCardContent.astro";
+import TimelineDot from "./TimelineDot.astro";
+import TimelineImage from "./TimelineImage.astro";
 
 interface Props {
-    date: string;
-    title: string;
-    text: string;
-    image: ImageMetadata;
+	date: string;
+	title: string;
+	text: string;
+	image: ImageMetadata;
 }
 
 const { date, title, text, image } = Astro.props;
 ---
 
 <div class="relative">
-    <div class="absolute -left-14 top-1 flex items-center justify-center">
-        <div
-            class="size-4 rounded-full border-4 border-primary bg-white shadow-sm"
-        >
-        </div>
-    </div>
-    <span
-        class="inline-block rounded-full bg-primary-light/30 px-4 py-1 font-heading text-sm font-semibold text-primary"
-    >
-        {date}
-    </span>
-    <h3 class="mt-3 font-heading text-xl font-semibold text-text">
-        {title}
-    </h3>
-    <p class="mt-2 leading-relaxed text-text-light">
-        {text}
-    </p>
-    <Image
-        src={image}
-        alt={title}
-        width={128}
-        height={128}
-        class="mt-4 size-32 rounded-full object-cover shadow-md ring-4 ring-white"
-        loading="lazy"
-    />
+	<div class="absolute -left-14 top-1 flex items-center justify-center">
+		<TimelineDot />
+	</div>
+	<TimelineCardContent date={date} title={title} text={text} />
+	<div class="mt-4">
+		<TimelineImage src={image} alt={title} size="sm" />
+	</div>
 </div>

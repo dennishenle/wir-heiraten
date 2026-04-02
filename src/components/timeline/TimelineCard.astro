@@ -1,5 +1,7 @@
 ---
-import { Image } from "astro:assets";
+import TimelineCardContent from "./TimelineCardContent.astro";
+import TimelineDot from "./TimelineDot.astro";
+import TimelineImage from "./TimelineImage.astro";
 
 interface Props {
 	date: string;
@@ -28,24 +30,15 @@ const isLeft = position === "left";
 		{
 			isLeft ? (
 				<div>
-					<span class="inline-block rounded-full bg-primary-light/30 px-4 py-1 font-heading text-sm font-semibold text-primary">
-						{date}
-					</span>
-					<h3 class="mt-3 font-heading text-xl font-semibold text-text">
-						{title}
-					</h3>
-					<p class="mt-2 leading-relaxed text-text-light">{text}</p>
+					<TimelineCardContent
+						date={date}
+						title={title}
+						text={text}
+					/>
 				</div>
 			) : (
 				<div class="flex justify-center md:justify-end">
-					<Image
-						src={image}
-						alt={title}
-						width={192}
-						height={192}
-						class="size-48 rounded-full object-cover shadow-md ring-4 ring-white md:size-40"
-						loading="lazy"
-					/>
+					<TimelineImage src={image} alt={title} />
 				</div>
 			)
 		}
@@ -53,10 +46,7 @@ const isLeft = position === "left";
 
 	{/* Centre dot */}
 	<div class="order-2 hidden md:flex md:flex-col md:items-center">
-		<div
-			class="size-4 rounded-full border-4 border-primary bg-white shadow-sm"
-		>
-		</div>
+		<TimelineDot />
 	</div>
 
 	{/* Right column */}
@@ -64,24 +54,15 @@ const isLeft = position === "left";
 		{
 			isLeft ? (
 				<div class="flex justify-center md:justify-start">
-					<Image
-						src={image}
-						alt={title}
-						width={192}
-						height={192}
-						class="size-48 rounded-full object-cover shadow-md ring-4 ring-white md:size-40"
-						loading="lazy"
-					/>
+					<TimelineImage src={image} alt={title} />
 				</div>
 			) : (
 				<div>
-					<span class="inline-block rounded-full bg-primary-light/30 px-4 py-1 font-heading text-sm font-semibold text-primary">
-						{date}
-					</span>
-					<h3 class="mt-3 font-heading text-xl font-semibold text-text">
-						{title}
-					</h3>
-					<p class="mt-2 leading-relaxed text-text-light">{text}</p>
+					<TimelineCardContent
+						date={date}
+						title={title}
+						text={text}
+					/>
 				</div>
 			)
 		}
