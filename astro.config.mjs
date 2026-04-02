@@ -6,6 +6,11 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
     site: 'https://dennishenle.github.io',
     base: '/wir-heiraten',
+    image: {
+        remotePatterns: [
+            { protocol: 'https', hostname: 'images.unsplash.com' },
+        ],
+    },
     vite: {
         plugins: [tailwindcss()],
     },

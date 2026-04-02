@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 interface Props {
 	date: string;
 	title: string;
@@ -36,9 +38,11 @@ const isLeft = position === "left";
 				</div>
 			) : (
 				<div class="flex justify-center md:justify-end">
-					<img
+					<Image
 						src={image}
 						alt={title}
+						width={192}
+						height={192}
 						class="size-48 rounded-full object-cover shadow-md ring-4 ring-white md:size-40"
 						loading="lazy"
 					/>
@@ -56,17 +60,15 @@ const isLeft = position === "left";
 	</div>
 
 	{/* Right column */}
-	<div
-		class:list={[
-			isLeft ? "order-3" : "order-3 md:order-1 md:text-right",
-		]}
-	>
+	<div class:list={[isLeft ? "order-3" : "order-3 md:order-1 md:text-right"]}>
 		{
 			isLeft ? (
 				<div class="flex justify-center md:justify-start">
-					<img
+					<Image
 						src={image}
 						alt={title}
+						width={192}
+						height={192}
 						class="size-48 rounded-full object-cover shadow-md ring-4 ring-white md:size-40"
 						loading="lazy"
 					/>

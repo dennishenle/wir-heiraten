@@ -7,7 +7,7 @@ export interface Milestone {
 
 export const milestones: Milestone[] = [
     {
-        date: "Sommer 2014",
+        date: "Herbst 2018",
         title: "Das erste Treffen",
         text: "Ein zufälliger Besuch im Netto — eigentlich nur wegen einer Quarktasche — wurde zum Anfang von allem. Statt Gebäck gab es ein Lächeln, das alles veränderte.",
         image: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=400&h=400&fit=crop",
