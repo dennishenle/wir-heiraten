@@ -1,6 +1,8 @@
+import engagementPhoto from "@/assets/engagement.jpeg";
+
 export const stories = [
     {
-        image: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&h=400&fit=crop",
+        image: engagementPhoto,
         alt: "Wie wir uns kennenlernten",
         title: "Wie alles begann",
         text: `Es war ein ganz normaler Sommertag, als sich unsere Wege zum ersten Mal kreuzten.
@@ -12,7 +14,7 @@ export const stories = [
         author: "Dennis",
     },
     {
-        image: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=600&h=400&fit=crop",
+        image: engagementPhoto,
         alt: "Der Heiratsantrag",
         title: "Der Antrag",
         text: `Nach Jahren voller gemeinsamer Abenteuer und unvergesslicher Momente
