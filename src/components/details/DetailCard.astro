@@ -1,0 +1,85 @@
+---
+interface DetailItem {
+	icon: "calendar" | "clock" | "pin" | "hourglass" | "music";
+	text: string;
+}
+
+interface Props {
+	image: string;
+	alt: string;
+	title: string;
+	items: DetailItem[];
+	directionsUrl: string;
+}
+
+const { image, alt, title, items, directionsUrl } = Astro.props;
+
+const icons: Record<DetailItem["icon"], string> = {
+	calendar:
+		'<path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />',
+	clock:
+		'<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />',
+	pin: '<path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />',
+	hourglass:
+		'<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />',
+	music:
+		'<path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.34A1.125 1.125 0 0017.926 1.3l-8.114 2.32A1.125 1.125 0 009 4.743V9z" />',
+};
+---
+
+<article class="group overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow duration-300 hover:shadow-md">
+	<div class="overflow-hidden">
+		<img
+			src={image}
+			alt={alt}
+			class="aspect-8/5 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+			loading="lazy"
+		/>
+	</div>
+
+	<div class="p-6 sm:p-8">
+		<h3 class="font-heading text-2xl font-semibold text-text">{title}</h3>
+
+		<ul class="mt-5 space-y-4">
+			{
+				items.map((item) => (
+					<li class="flex items-start gap-3">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							stroke="currentColor"
+							class="mt-0.5 size-5 shrink-0 text-primary"
+							set:html={icons[item.icon]}
+						/>
+						<span class="text-text-light">{item.text}</span>
+					</li>
+				))
+			}
+		</ul>
+
+		<a
+			href={directionsUrl}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="mt-6 inline-flex items-center gap-2 rounded-full border border-primary px-6 py-2.5 text-sm font-medium text-primary transition-colors duration-200 hover:bg-primary hover:text-white"
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke-width="1.5"
+				stroke="currentColor"
+				class="size-4"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					d="M9 6.75V15m6-6v8.25m.503-8.914l6.239 6.239a.75.75 0 01-.22 1.228l-8.625 3.488a.75.75 0 01-.574 0L3.698 16.803a.75.75 0 01-.22-1.228l6.239-6.239a2.25 2.25 0 013.182 0z"
+				></path>
+			</svg>
+			Wegbeschreibung
+		</a>
+	</div>
+</article>
