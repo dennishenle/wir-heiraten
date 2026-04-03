@@ -1,0 +1,38 @@
+---
+interface Props {
+	time: string;
+	title: string;
+	description: string;
+	isLast?: boolean;
+}
+
+const { time, title, description, isLast = false } = Astro.props;
+---
+
+<li class="relative flex gap-5">
+	{/* Dot + connecting line */}
+	<div class="relative flex flex-col items-center">
+		<span
+			class="z-10 mt-1 size-3 shrink-0 rounded-full border-2 border-primary bg-cream"
+		></span>
+		{
+			!isLast && (
+				<span class="absolute top-4 bottom-0 w-px bg-primary-light/40" />
+			)
+		}
+	</div>
+
+	<div class="pb-10">
+		<span
+			class="font-heading text-sm font-semibold tracking-wide text-primary"
+		>
+			{time} Uhr
+		</span>
+		<h4 class="mt-0.5 font-heading text-lg font-semibold text-text">
+			{title}
+		</h4>
+		<p class="mt-1 text-sm leading-relaxed text-text-light">
+			{description}
+		</p>
+	</div>
+</li>
