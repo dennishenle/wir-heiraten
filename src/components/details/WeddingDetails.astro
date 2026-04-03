@@ -1,0 +1,52 @@
+---
+import HeartDivider from "../love-story/HeartDivider.astro";
+import DetailCard from "./DetailCard.astro";
+
+const ceremony = {
+	image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=500&fit=crop",
+	alt: "Rathaus Ravensburg",
+	title: "Standesamt",
+	items: [
+		{ icon: "calendar" as const, text: "Samstag, 21. August 2026" },
+		{ icon: "clock" as const, text: "11:00 Uhr" },
+		{
+			icon: "pin" as const,
+			text: "Marienpl. 26, 88212 Ravensburg",
+		},
+		{ icon: "hourglass" as const, text: "ca. 90 Minuten" },
+	],
+	directionsUrl: "https://maps.app.goo.gl/HXq8DvmUcE6eKpir7",
+};
+
+const reception = {
+	image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&h=500&fit=crop",
+	alt: "Festsaal für die Feier",
+	title: "Feier",
+	items: [
+		{ icon: "calendar" as const, text: "Samstag, 29. August 2026" },
+		{ icon: "clock" as const, text: "15:30 Uhr" },
+		{
+			icon: "pin" as const,
+			text: "Ob. Bleiche 1, 89423 Gundelfingen an der Donau",
+		},
+		{ icon: "music" as const, text: "DJ" }, // TODO: Name vom DJ eintragen
+	],
+	directionsUrl: "https://maps.app.goo.gl/8BaTxjR92YDfQPuA6",
+};
+---
+
+<section id="details" class="section-padding bg-cream-dark">
+	<div class="mx-auto max-w-5xl">
+		<h2 class="section-title">Hochzeitsdetails</h2>
+		<p class="mx-auto mb-4 max-w-xl text-center text-text-light">
+			Alles, was ihr über unseren besonderen Tag wissen müsst.
+		</p>
+
+		<HeartDivider />
+
+		<div class="grid gap-12 md:grid-cols-2 md:gap-10">
+			<DetailCard {...ceremony} />
+			<DetailCard {...reception} />
+		</div>
+	</div>
+</section>
