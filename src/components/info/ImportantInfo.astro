@@ -1,0 +1,21 @@
+---
+import HeartDivider from "../love-story/HeartDivider.astro";
+import InfoCard from "./InfoCard.astro";
+import { infoItems } from "./info-items";
+---
+
+<section id="info" class="section-padding bg-cream-dark">
+	<div class="mx-auto max-w-5xl">
+		<h2 class="section-title">Wichtige Informationen</h2>
+		<p class="mx-auto mb-4 max-w-xl text-center text-text-light">
+			Alles Wissenswerte auf einen Blick, damit ihr bestens vorbereitet
+			seid.
+		</p>
+
+		<HeartDivider />
+
+		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			{infoItems.map((item) => <InfoCard {...item} />)}
+		</div>
+	</div>
+</section>

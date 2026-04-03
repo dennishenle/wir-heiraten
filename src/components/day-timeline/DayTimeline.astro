@@ -1,0 +1,29 @@
+---
+import HeartDivider from "../love-story/HeartDivider.astro";
+import DayTimelineStep from "./DayTimelineStep.astro";
+import { schedule } from "./schedule";
+---
+
+<section id="schedule" class="section-padding bg-cream">
+	<div class="mx-auto max-w-3xl">
+		<h2 class="section-title">Ablauf des Tages</h2>
+		<p class="mx-auto mb-4 max-w-xl text-center text-text-light">
+			So haben wir uns den schönsten Tag unseres Lebens vorgestellt.
+		</p>
+
+		<HeartDivider />
+
+		<ol class="list-none pl-0">
+			{
+				schedule.map((step, i) => (
+					<DayTimelineStep
+						time={step.time}
+						title={step.title}
+						description={step.description}
+						isLast={i === schedule.length - 1}
+					/>
+				))
+			}
+		</ol>
+	</div>
+</section>
