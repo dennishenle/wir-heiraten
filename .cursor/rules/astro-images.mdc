@@ -1,0 +1,29 @@
+---
+description: Use the Astro Image component for all images
+globs: "**/*.astro"
+alwaysApply: false
+---
+
+# Use Astro Image Component
+
+Always use the `Image` component from `astro:assets` to display images. Never use plain `<img>` tags.
+
+```astro
+---
+// ❌ BAD
+---
+<img src="/photos/hero.jpg" alt="Hero" />
+<img src={myImage} alt="Hero" />
+
+---
+// ✅ GOOD
+import { Image } from 'astro:assets';
+import heroImg from '@/assets/hero.jpg';
+---
+<Image src={heroImg} alt="Hero" />
+```
+
+- Import `Image` from `astro:assets` in the frontmatter
+- Import local images as ESM imports so Astro can optimise them
+- For remote images, configure `image.domains` or `image.remotePatterns` in `astro.config.*` and pass the URL string as `src`
+- Always provide a meaningful `alt` attribute
