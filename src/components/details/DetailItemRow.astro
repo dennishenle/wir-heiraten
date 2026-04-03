@@ -1,0 +1,16 @@
+---
+import DetailIcon from "./DetailIcon.astro";
+import type { IconName } from "./DetailIcon.astro";
+
+interface Props {
+	icon: IconName;
+	text: string;
+}
+
+const { icon, text } = Astro.props;
+---
+
+<li class="flex items-start gap-3">
+	<DetailIcon icon={icon} />
+	<span class="text-text-light">{text}</span>
+</li>

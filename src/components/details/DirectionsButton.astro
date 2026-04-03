@@ -1,0 +1,30 @@
+---
+interface Props {
+	href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<a
+	href={href}
+	target="_blank"
+	rel="noopener noreferrer"
+	class="mt-6 inline-flex items-center gap-2 rounded-full border border-primary px-6 py-2.5 text-sm font-medium text-primary transition-colors duration-200 hover:bg-primary hover:text-white"
+>
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		fill="none"
+		viewBox="0 0 24 24"
+		stroke-width="1.5"
+		stroke="currentColor"
+		class="size-4"
+	>
+		<path
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			d="M9 6.75V15m6-6v8.25m.503-8.914l6.239 6.239a.75.75 0 01-.22 1.228l-8.625 3.488a.75.75 0 01-.574 0L3.698 16.803a.75.75 0 01-.22-1.228l6.239-6.239a2.25 2.25 0 013.182 0z"
+		></path>
+	</svg>
+	Wegbeschreibung
+</a>
