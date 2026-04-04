@@ -10,7 +10,7 @@ export const bridesmaid: PartyMember = {
 	description: "Beste Freundin seit der Schulzeit — hält die Nerven.",
 	image:
 		"https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=256&h=256&fit=crop&crop=faces",
-	alt: "Porträt Lena Hoffmann",
+	alt: "Porträt Agnes Eberhardt",
 };
 
 export const groomsman: PartyMember = {

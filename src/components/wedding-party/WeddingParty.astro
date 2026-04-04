@@ -13,27 +13,25 @@ import { bridesmaid, groomsman } from "./witnesses";
 
 		<HeartDivider />
 
-		<div class="space-y-16">
-			<div>
+		<div
+			class="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-10 md:items-start"
+		>
+			<div class="flex flex-col items-center">
 				<h3
 					class="mb-8 text-center font-heading text-xl font-semibold text-primary"
 				>
 					Trauzeugin der Braut
 				</h3>
-				<center>
-					<PartyMemberCard {...bridesmaid} />
-				</center>
+				<PartyMemberCard {...bridesmaid} />
 			</div>
 
-			<div>
+			<div class="flex flex-col items-center">
 				<h3
 					class="mb-8 text-center font-heading text-xl font-semibold text-primary"
 				>
 					Trauzeuge des Bräutigams
 				</h3>
-				<center>
-					<PartyMemberCard {...groomsman} />
-				</center>
+				<PartyMemberCard {...groomsman} />
 			</div>
 		</div>
 	</div>
