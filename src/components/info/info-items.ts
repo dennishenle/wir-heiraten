@@ -10,6 +10,8 @@ export const infoItems: InfoItem[] = [
 		title: "Dresscode",
 		description: "Festlich elegant — helle, sommerliche Farben sind willkommen.",
 	},
+
+	// TODO: Link zu Google Maps (Parkplatz Obere Bleiche)
 	{
 		emoji: "🅿️",
 		title: "Parken",
@@ -25,7 +27,7 @@ export const infoItems: InfoItem[] = [
 		emoji: "💑",
 		title: "Begleitung",
 		description:
-			"Plus-Ones sind herzlich willkommen — bitte gebt bei der RSVP Bescheid.",
+			"Plus-Ones sind herzlich willkommen — bitte gebt bei eurer Zusage Bescheid.",
 	},
 	{
 		emoji: "📸",
@@ -37,13 +39,7 @@ export const infoItems: InfoItem[] = [
 		emoji: "🎁",
 		title: "Geschenke",
 		description:
-			"Eure Anwesenheit ist das größte Geschenk. Mehr dazu in der Registry-Sektion.",
-	},
-	{
-		emoji: "📶",
-		title: "WLAN",
-		description:
-			"Netzwerk und Passwort findet ihr vor Ort an der Rezeption.",
+			"Eure Anwesenheit ist das größte Geschenk. Mehr dazu in der Geschenke-Sektion.",
 	},
 	{
 		emoji: "👶",

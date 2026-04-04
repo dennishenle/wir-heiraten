@@ -9,7 +9,7 @@ export const schedule: ScheduleStep[] = [
 		time: "15:30",
 		title: "Empfang der Gäste",
 		description:
-			"Ankunft und Begrüßung mit einem Glas Sekt im Garten des Bleichestadels.",
+			"Ankunft und Begrüßung beim Bleichestadels.",
 	},
 	{
 		time: "16:00",
@@ -25,26 +25,20 @@ export const schedule: ScheduleStep[] = [
 	},
 	{
 		time: "18:30",
-		title: "Abendessen",
+		title: "Dinner + Aktivitäten",
 		description:
-			"Ein festliches Drei-Gänge-Menü — lasst es euch schmecken!",
+			"Live Grilling, Desserts und Torte — lasst es euch schmecken!",
 	},
 	{
-		time: "20:00",
+		time: "21:00",
 		title: "Eröffnungstanz",
 		description:
 			"Unser erster Tanz als Ehepaar — danach seid ihr alle auf der Tanzfläche willkommen.",
 	},
 	{
 		time: "21:00",
-		title: "Party & Überraschungen",
+		title: "Party, Party, Party - 'til we drop",
 		description:
-			"Musik, Spiele und die ein oder andere Überraschung erwarten euch.",
-	},
-	{
-		time: "00:00",
-		title: "Großer Abschied",
-		description:
-			"Wunderkerzen, letzte Umarmungen und ein unvergesslicher Ausklang.",
+			"Gute Musik und kalte Getränke erwarten euch.",
 	},
 ];
