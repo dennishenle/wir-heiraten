@@ -2,6 +2,8 @@ export interface InfoItem {
 	emoji: string;
 	title: string;
 	description: string;
+	/** Optional external link (e.g. Google Maps). */
+	url?: string;
 }
 
 export const infoItems: InfoItem[] = [
@@ -11,11 +13,11 @@ export const infoItems: InfoItem[] = [
 		description: "Festlich elegant — helle, sommerliche Farben sind willkommen.",
 	},
 
-	// TODO: Link zu Google Maps (Parkplatz Obere Bleiche)
 	{
 		emoji: "🅿️",
 		title: "Parken",
 		description: "Kostenlose Parkplätze stehen direkt an der Location zur Verfügung.",
+		url: "https://maps.app.goo.gl/LMohNXFJSZu7Jq9j7",
 	},
 	{
 		emoji: "☀️",
