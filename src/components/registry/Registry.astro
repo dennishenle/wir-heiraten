@@ -1,0 +1,21 @@
+---
+import HeartDivider from "../love-story/HeartDivider.astro";
+import RegistryCard from "./RegistryCard.astro";
+import { registries } from "./registries";
+---
+
+<section id="registry" class="section-padding bg-cream-dark">
+	<div class="mx-auto max-w-5xl">
+		<h2 class="section-title">Geschenke</h2>
+		<p class="mx-auto mb-4 max-w-xl text-center text-text-light">
+			Eure Anwesenheit ist das schönste Geschenk. Wer uns dennoch eine Freude
+			machen möchte, findet hier ein paar Inspirationen.
+		</p>
+
+		<HeartDivider />
+
+		<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+			{registries.map((reg) => <RegistryCard {...reg} />)}
+		</div>
+	</div>
+</section>

@@ -6,3 +6,4 @@ export { default as WeddingDetails } from "./details/WeddingDetails.astro";
 export { default as DayTimeline } from "./day-timeline/DayTimeline.astro";
 export { default as ImportantInfo } from "./info/ImportantInfo.astro";
 export { default as WeddingParty } from "./wedding-party/WeddingParty.astro";
+export { default as Registry } from "./registry/Registry.astro";
