@@ -8,13 +8,13 @@ import { registries } from "./registries";
 	<div class="mx-auto max-w-5xl">
 		<h2 class="section-title">Geschenke</h2>
 		<p class="mx-auto mb-4 max-w-xl text-center text-text-light">
-			Eure Anwesenheit ist das schönste Geschenk. Wer uns dennoch eine Freude
-			machen möchte, findet hier ein paar Inspirationen.
+			Eure Anwesenheit ist das schönste Geschenk. Wer uns dennoch eine
+			Freude machen möchte, findet hier ein paar Inspirationen.
 		</p>
 
 		<HeartDivider />
 
-		<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+		<div class="flex flex-wrap justify-center gap-8">
 			{registries.map((reg) => <RegistryCard {...reg} />)}
 		</div>
 	</div>
