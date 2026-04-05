@@ -3,9 +3,10 @@ interface Props {
 	name: string;
 	imageUrl: string;
 	href: string;
+	linkLabel: string;
 }
 
-const { name, imageUrl, href } = Astro.props;
+const { name, imageUrl, href, linkLabel } = Astro.props;
 ---
 
 <a
@@ -24,7 +25,7 @@ const { name, imageUrl, href } = Astro.props;
 		<span
 			class="mt-1 inline-block text-sm font-medium text-primary transition-colors group-hover:text-primary-light"
 		>
-			Zur Wunschliste &rarr;
+			{linkLabel} &rarr;
 		</span>
 	</div>
 </a>
