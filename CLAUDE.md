@@ -39,3 +39,6 @@ import myPhoto from '@/assets/my-photo.jpg';
 ---
 <Image src={myPhoto} alt="Description" />
 ```
+
+- For remote images, configure `image.domains` or `image.remotePatterns` in `astro.config.*` and pass the URL string as `src`
+- Always provide a meaningful `alt` attribute
