@@ -1,0 +1,25 @@
+---
+interface Props {
+	label: string;
+	htmlFor: string;
+	errorName?: string;
+	errorMessage?: string;
+	required?: boolean;
+}
+
+const { label, htmlFor, errorName, errorMessage, required } = Astro.props;
+---
+
+<div>
+	<label for={htmlFor} class="mb-1 block text-sm font-semibold text-text">
+		{label}{required && <span class="text-primary"> *</span>}
+	</label>
+	<slot />
+	{
+		errorName && (
+			<p class="mt-1 hidden text-sm text-primary" data-error={errorName}>
+				{errorMessage}
+			</p>
+		)
+	}
+</div>

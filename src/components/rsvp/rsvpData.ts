@@ -1,8 +1,7 @@
 export const mealOptions = [
 	{ value: "", label: "Bitte auswählen" },
-	{ value: "beef", label: "Rindfilet" },
-	{ value: "chicken", label: "Hähnchenbrust" },
-	{ value: "fish", label: "Lachs" },
+	{ value: "meat", label: "Fleisch" },
+	{ value: "fish", label: "Fisch" },
 	{ value: "vegetarian", label: "Vegetarisch" },
 ];
 
