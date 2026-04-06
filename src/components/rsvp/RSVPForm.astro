@@ -1,0 +1,221 @@
+---
+import RSVPField from "./RSVPField.astro";
+import { mealOptions, attendanceOptions } from "./rsvpData";
+
+const inputClasses =
+	"w-full rounded-lg border border-cream-dark bg-white px-4 py-2.5 text-text transition focus:border-primary focus:ring-2 focus:ring-primary-light focus:outline-none";
+---
+
+<form id="rsvp-form" class="space-y-6" novalidate>
+	<RSVPField
+		label="Vollständiger Name"
+		htmlFor="rsvp-name"
+		errorName="name"
+		errorMessage="Bitte gib deinen Namen ein."
+		required
+	>
+		<input
+			type="text"
+			id="rsvp-name"
+			name="name"
+			required
+			class={inputClasses}
+		/>
+	</RSVPField>
+
+	<RSVPField
+		label="E-Mail-Adresse"
+		htmlFor="rsvp-email"
+		errorName="email"
+		errorMessage="Bitte gib eine gültige E-Mail-Adresse ein."
+		required
+	>
+		<input
+			type="email"
+			id="rsvp-email"
+			name="email"
+			required
+			class={inputClasses}
+		/>
+	</RSVPField>
+
+	<RSVPField
+		label="Anzahl der Gäste"
+		htmlFor="rsvp-guests"
+		errorName="guests"
+		errorMessage="Bitte gib die Anzahl der Gäste ein."
+		required
+	>
+		<input
+			type="number"
+			id="rsvp-guests"
+			name="guests"
+			min="1"
+			max="10"
+			value="1"
+			required
+			class={inputClasses}
+		/>
+	</RSVPField>
+
+	<fieldset>
+		<legend class="mb-2 text-sm font-semibold text-text">
+			Teilnahme <span class="text-primary">*</span>
+		</legend>
+		<div class="flex flex-wrap gap-6">
+			{
+				attendanceOptions.map((opt) => (
+					<label class="flex cursor-pointer items-center gap-2 text-text">
+						<input
+							type="radio"
+							name="attendance"
+							value={opt.value}
+							required
+							class="size-4 accent-primary"
+						/>
+						{opt.label}
+					</label>
+				))
+			}
+		</div>
+		<p class="mt-1 hidden text-sm text-primary" data-error="attendance">
+			Bitte wähle eine Option.
+		</p>
+	</fieldset>
+
+	<RSVPField
+		label="Menüauswahl"
+		htmlFor="rsvp-meal"
+		errorName="meal"
+		errorMessage="Bitte wähle ein Menü."
+		required
+	>
+		<select id="rsvp-meal" name="meal" required class={inputClasses}>
+			{
+				mealOptions.map((opt) => (
+					<option value={opt.value}>{opt.label}</option>
+				))
+			}
+		</select>
+	</RSVPField>
+
+	<RSVPField label="Unverträglichkeiten / Allergien" htmlFor="rsvp-dietary">
+		<textarea
+			id="rsvp-dietary"
+			name="dietary"
+			rows="2"
+			class={inputClasses}></textarea>
+	</RSVPField>
+
+	<RSVPField label="Nachricht an das Brautpaar" htmlFor="rsvp-message">
+		<textarea
+			id="rsvp-message"
+			name="message"
+			rows="3"
+			class={inputClasses}></textarea>
+	</RSVPField>
+
+	<div class="text-center">
+		<button
+			type="submit"
+			class="rounded-full bg-primary px-10 py-3 font-semibold text-white transition hover:bg-primary-light focus:ring-2 focus:ring-primary-light focus:outline-none"
+		>
+			Antwort senden
+		</button>
+	</div>
+</form>
+
+<script>
+	const form = document.getElementById("rsvp-form") as HTMLFormElement;
+	const success = document.getElementById("rsvp-success")!;
+	const submitBtn = form.querySelector(
+		'button[type="submit"]',
+	) as HTMLButtonElement;
+
+	const APPS_SCRIPT_URL =
+		"https://script.google.com/macros/s/AKfycbykKqDPdYpDyhiI1LINSKf8_SKPjaPTlAmAMFWAci-KArDXUALomA6ZE8ZFvqgX7pqj/exec";
+
+	function showError(name: string) {
+		const el = form.querySelector(`[data-error="${name}"]`) as HTMLElement;
+		el?.classList.remove("hidden");
+	}
+
+	function clearErrors() {
+		form.querySelectorAll("[data-error]").forEach((el) => {
+			el.classList.add("hidden");
+		});
+	}
+
+	function showSuccess() {
+		form.classList.add("hidden");
+		success.classList.remove("hidden");
+	}
+
+	// Check localStorage on load — if already submitted, show success immediately
+	if (localStorage.getItem("rsvp_sent") === "true") {
+		showSuccess();
+	}
+
+	form.addEventListener("submit", async (e) => {
+		e.preventDefault();
+		clearErrors();
+
+		const data = new FormData(form);
+		let valid = true;
+
+		if (!data.get("name")?.toString().trim()) {
+			showError("name");
+			valid = false;
+		}
+
+		const email = data.get("email")?.toString().trim() ?? "";
+		if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+			showError("email");
+			valid = false;
+		}
+
+		const guests = Number(data.get("guests"));
+		if (!guests || guests < 1) {
+			showError("guests");
+			valid = false;
+		}
+
+		if (!data.get("attendance")) {
+			showError("attendance");
+			valid = false;
+		}
+
+		if (!data.get("meal")) {
+			showError("meal");
+			valid = false;
+		}
+
+		if (!valid) return;
+
+		submitBtn.disabled = true;
+		submitBtn.textContent = "Wird gesendet…";
+
+		try {
+			await fetch(APPS_SCRIPT_URL, {
+				method: "POST",
+				mode: "no-cors",
+				headers: { "Content-Type": "text/plain" },
+				body: JSON.stringify({
+					name: data.get("name"),
+					email: data.get("email"),
+					guests: data.get("guests"),
+					attendance: data.get("attendance"),
+					meal: data.get("meal"),
+					dietary: data.get("dietary") ?? "",
+					message: data.get("message") ?? "",
+				}),
+			});
+			localStorage.setItem("rsvp_sent", "true");
+			showSuccess();
+		} catch (_) {
+			submitBtn.disabled = false;
+			submitBtn.textContent = "Antwort senden";
+			alert("Es gab einen Fehler beim Senden. Bitte versuche es erneut.");
+		}
+	});
+</script>
