@@ -8,3 +8,4 @@ export { default as ImportantInfo } from "./info/ImportantInfo.astro";
 export { default as WeddingParty } from "./wedding-party/WeddingParty.astro";
 export { default as Registry } from "./registry/Registry.astro";
 export { default as RSVP } from "./rsvp/RSVP.astro";
+export { default as FAQ } from "./faq/FAQ.astro";

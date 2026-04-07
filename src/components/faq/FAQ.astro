@@ -1,0 +1,49 @@
+---
+import HeartDivider from "../love-story/HeartDivider.astro";
+import { faqItems } from "./faqData";
+---
+
+<section id="faq" class="section-padding bg-cream-dark">
+	<div class="mx-auto max-w-3xl">
+		<h2 class="section-title">Häufige Fragen</h2>
+		<p class="mx-auto mb-4 max-w-xl text-center text-text-light">
+			Hier findet ihr Antworten auf die wichtigsten Fragen rund um unsere
+			Hochzeit.
+		</p>
+
+		<HeartDivider />
+
+		<div class="space-y-3">
+			{
+				faqItems.map((item) => (
+					<details class="faq-item group rounded-lg bg-cream px-6 py-4 shadow-sm transition-shadow hover:shadow-md">
+						<summary class="flex cursor-pointer list-none items-center justify-between font-heading text-lg font-semibold text-text [-webkit-appearance:none] [&::-webkit-details-marker]:hidden">
+							{item.question}
+							<span class="faq-icon ml-4 shrink-0 text-primary transition-transform duration-300 group-open:rotate-45">
+								+
+							</span>
+						</summary>
+						<p class="mt-3 leading-relaxed text-text-light">
+							{item.answer}
+						</p>
+					</details>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<script>
+	// Only allow one FAQ item open at a time
+	document.querySelectorAll(".faq-item").forEach((detail) => {
+		detail.addEventListener("toggle", () => {
+			if ((detail as HTMLDetailsElement).open) {
+				document.querySelectorAll(".faq-item").forEach((other) => {
+					if (other !== detail && (other as HTMLDetailsElement).open) {
+						(other as HTMLDetailsElement).open = false;
+					}
+				});
+			}
+		});
+	});
+</script>
