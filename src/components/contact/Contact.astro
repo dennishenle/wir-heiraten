@@ -1,0 +1,68 @@
+---
+import HeartDivider from "../love-story/HeartDivider.astro";
+import { contactCards, socialLinks } from "./contactData";
+---
+
+<section id="contact" class="section-padding bg-cream">
+	<div class="mx-auto max-w-4xl">
+		<h2 class="section-title">Kontakt</h2>
+		<p class="mx-auto mb-4 max-w-xl text-center text-text-light">
+			Habt ihr Fragen? Meldet euch gerne bei uns!
+		</p>
+
+		<HeartDivider />
+
+		<div class={`mt-10 grid gap-8 ${contactCards.length > 1 ? "md:grid-cols-2" : "mx-auto max-w-md"}`}>
+			{
+				contactCards.map((card) => (
+					<div class="rounded-xl bg-cream-dark p-8 text-center shadow-sm">
+						<h3 class="mb-1 font-heading text-xl font-semibold text-text">
+							{card.title}
+						</h3>
+						<p class="mb-4 text-lg font-medium text-primary">{card.name}</p>
+
+						<div class="space-y-2 text-text-light">
+							<p>
+								<a
+									href={`mailto:${card.email}`}
+									class="transition-colors hover:text-primary"
+								>
+									{card.email}
+								</a>
+							</p>
+							{card.phone && (                                                                   
+								<p>                                                                              
+									<a                                                                             
+									href={`tel:${card.phone}`}                                                   
+									class="transition-colors hover:text-primary"                                 
+									>                                                                              
+									{card.phone}                                                                 
+									</a>                                                                           
+								</p>                                                                             
+							)} 
+							{card.note && (
+								<p class="mt-3 text-sm italic">{card.note}</p>
+							)}
+						</div>
+					</div>
+				))
+			}
+		</div>
+
+		<div class="mt-10 flex justify-center gap-6">
+			{
+				socialLinks.map((link) => (
+					<a
+						href={link.href}
+						aria-label={link.label}
+						class="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-cream transition-colors hover:bg-primary-light"
+					>
+						<span class="text-sm font-bold uppercase">
+							{link.icon.charAt(0).toUpperCase()}
+						</span>
+					</a>
+				))
+			}
+		</div>
+	</div>
+</section>
