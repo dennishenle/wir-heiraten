@@ -22,4 +22,10 @@ interface FooterSocialLink {
     icon: string
 }
 
-export const socialLinks: FooterSocialLink[] = [];
+export const socialLinks: FooterSocialLink[] = [
+    {
+        label: "GitHub",
+        href: "https://github.com/dennishenle/wir-heiraten",
+        icon: "github"
+    },
+];
