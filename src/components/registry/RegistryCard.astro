@@ -4,13 +4,16 @@ interface Props {
 	imageUrl: string;
 	href: string;
 	linkLabel: string;
+	description?: string;
 }
 
-const { name, imageUrl, href, linkLabel } = Astro.props;
+const { name, imageUrl, href, linkLabel, description } = Astro.props;
+const isLink = !!linkLabel;
+const Tag = isLink ? 'a' : 'div';
 ---
 
-<a
-	href={href}
+<Tag
+	{...(isLink ? { href } : {})}
 	class="group block w-full max-w-sm overflow-hidden rounded-xl bg-white shadow-md transition-shadow hover:shadow-lg"
 >
 	<div class="flex h-40 items-center justify-center bg-cream p-6">
@@ -22,10 +25,15 @@ const { name, imageUrl, href, linkLabel } = Astro.props;
 	</div>
 	<div class="px-4 py-4 text-center">
 		<h3 class="font-heading text-lg font-semibold text-text">{name}</h3>
-		<span
-			class="mt-1 inline-block text-sm font-medium text-primary transition-colors group-hover:text-primary-light"
-		>
-			{linkLabel} &rarr;
-		</span>
+		{description && (
+			<p class="mt-2 text-sm text-text/80">{description}</p>
+		)}
+		{linkLabel && (
+			<span
+				class="mt-1 inline-block text-sm font-medium text-primary transition-colors group-hover:text-primary-light"
+			>
+				{linkLabel} &rarr;
+			</span>
+		)}
 	</div>
-</a>
+</Tag>
