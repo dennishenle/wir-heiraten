@@ -13,10 +13,6 @@ export const faqItems: FaqItem[] = [
 		answer: "Wir lieben eure Kleinen! Kinder sind herzlich willkommen. Bitte gebt bei der RSVP an, wie viele Kinder ihr mitbringt, damit wir entsprechend planen können.",
 	},
 	{
-		question: "Darf ich eine Begleitung mitbringen?",
-		answer: "Bitte schaut auf eure Einladung — dort ist vermerkt, ob eine Begleitung eingeschlossen ist. Gebt den Namen eurer Begleitung bitte bei der RSVP an.",
-	},
-	{
 		question: "Wo kann ich parken?",
 		answer: "Es stehen ausreichend kostenlose Parkplätze direkt am Veranstaltungsort zur Verfügung. Eine genaue Anfahrtsbeschreibung findet ihr im Bereich Hochzeitsdetails.",
 	},
@@ -25,12 +21,8 @@ export const faqItems: FaqItem[] = [
 		answer: "Keine Sorge! Wir haben einen Plan B. Sollte das Wetter nicht mitspielen, findet die Zeremonie im Innenbereich statt. Bringt vorsichtshalber einen leichten Überwurf mit.",
 	},
 	{
-		question: "Gibt es eine offene Bar?",
-		answer: "Ja! Während des Empfangs und der Feier gibt es eine offene Bar mit einer Auswahl an Weinen, Bier, Cocktails und alkoholfreien Getränken.",
-	},
-	{
 		question: "Gibt es Hotelempfehlungen?",
-		answer: "Wir haben in nahegelegenen Hotels Zimmerkontingente reserviert. Weitere Informationen und Buchungslinks findet ihr in Kürze auf dieser Seite.",
+		answer: "Wir haben im Lobinger Parkhotel in Giengen ein Zimmerkontingent reserviert. Details findet ihr auf eurer Einladung.",
 	},
 	{
 		question: "Darf ich Fotos machen?",
