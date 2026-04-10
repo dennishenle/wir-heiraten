@@ -18,6 +18,15 @@
 	--font-body: "Lato", sans-serif;
 }
 
+/* ─── Dark mode token overrides ─────────────────────────────────────────────── */
+
+.dark {
+	--color-cream: #1a1714;
+	--color-cream-dark: #211e1a;
+	--color-text: #f0ebe3;
+	--color-text-light: #b8b4b1;
+}
+
 /* ─── Base resets & defaults ────────────────────────────────────────────────── */
 
 html {
