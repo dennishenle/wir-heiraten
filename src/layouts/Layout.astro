@@ -25,13 +25,7 @@ import "../styles/global.css";
 
 		<title>Wir heiraten!</title>
 
-		<script is:inline>
-			const saved = localStorage.getItem('theme');
-			const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-			if (saved === 'dark' || (!saved && prefersDark)) {
-				document.documentElement.classList.add('dark');
-			}
-		</script>
+		<meta name="color-scheme" content="light dark" />
 	</head>
 	<body class="bg-cream text-text font-body antialiased">
 		<slot />
