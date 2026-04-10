@@ -31,14 +31,7 @@ import { contactCards, socialLinks } from "./contactData";
 								</a>
 							</p>
 							{card.phone && (                                                                   
-								<p>                                                                              
-									<a                                                                             
-									href={`tel:${card.phone}`}                                                   
-									class="transition-colors hover:text-primary"                                 
-									>                                                                              
-									{card.phone}                                                                 
-									</a>                                                                           
-								</p>                                                                             
+								<p>{card.phone}</p>
 							)} 
 							{card.note && (
 								<p class="mt-3 text-sm italic">{card.note}</p>
