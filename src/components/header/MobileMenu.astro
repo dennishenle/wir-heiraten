@@ -1,5 +1,6 @@
 ---
 import { navLinks } from "./navLinks";
+import DarkModeToggle from "./DarkModeToggle.astro";
 ---
 
 <div
@@ -35,6 +36,10 @@ import { navLinks } from "./navLinks";
             </a>
         ))
     }
+
+    <div class="mt-8">
+        <DarkModeToggle />
+    </div>
 </div>
 
 <script>

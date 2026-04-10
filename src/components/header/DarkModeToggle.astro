@@ -1,12 +1,10 @@
 <button
-    id="dark-mode-toggle"
+    class="dark-mode-toggle p-2 transition-colors text-white/85 hover:text-white group-[.scrolled]/header:text-text/75 group-[.scrolled]/header:hover:text-text"
     aria-label="Dunkelmodus umschalten"
-    class="p-2 transition-colors text-white/85 hover:text-white group-[.scrolled]/header:text-text/75 group-[.scrolled]/header:hover:text-text"
 >
     <!-- Moon: shown in light mode, click to enable dark -->
     <svg
-        id="icon-moon"
-        class="h-5 w-5"
+        class="icon-moon h-5 w-5"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -22,8 +20,7 @@
 
     <!-- Sun: shown in dark mode, click to enable light -->
     <svg
-        id="icon-sun"
-        class="h-5 w-5 hidden"
+        class="icon-sun h-5 w-5 hidden"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -39,21 +36,23 @@
 </button>
 
 <script>
-    const toggle = document.getElementById('dark-mode-toggle')!;
-    const iconMoon = document.getElementById('icon-moon')!;
-    const iconSun = document.getElementById('icon-sun')!;
-
     function applyTheme(dark: boolean) {
+        document.documentElement.classList.add('theme-transitioning');
         document.documentElement.classList.toggle('dark', dark);
-        iconMoon.classList.toggle('hidden', dark);
-        iconSun.classList.toggle('hidden', !dark);
+        document.querySelectorAll('.icon-moon').forEach(el => el.classList.toggle('hidden', dark));
+        document.querySelectorAll('.icon-sun').forEach(el => el.classList.toggle('hidden', !dark));
         localStorage.setItem('theme', dark ? 'dark' : 'light');
+        setTimeout(() => document.documentElement.classList.remove('theme-transitioning'), 300);
     }
 
-    // Sync icon state with current theme on load
-    applyTheme(document.documentElement.classList.contains('dark'));
+    // Sync icon state with current theme on load (no transition on initial render)
+    const isDark = document.documentElement.classList.contains('dark');
+    document.querySelectorAll('.icon-moon').forEach(el => el.classList.toggle('hidden', isDark));
+    document.querySelectorAll('.icon-sun').forEach(el => el.classList.toggle('hidden', !isDark));
 
-    toggle.addEventListener('click', () => {
-        applyTheme(!document.documentElement.classList.contains('dark'));
+    document.querySelectorAll('.dark-mode-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            applyTheme(!document.documentElement.classList.contains('dark'));
+        });
     });
 </script>
