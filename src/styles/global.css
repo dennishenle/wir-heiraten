@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 /* ─── Theme tokens ──────────────────────────────────────────────────────────── */
 
 @theme {
@@ -31,6 +33,19 @@
 
 html {
 	scroll-behavior: smooth;
+}
+
+/* ─── Theme transition ───────────────────────────────────────────────────────
+   Applied briefly during theme toggle to animate color changes smoothly.
+   ──────────────────────────────────────────────────────────────────────────── */
+
+.theme-transitioning,
+.theme-transitioning * {
+	transition:
+		background-color 300ms ease,
+		color 300ms ease,
+		border-color 300ms ease,
+		fill 300ms ease !important;
 }
 
 /* ─── Section utilities ─────────────────────────────────────────────────────

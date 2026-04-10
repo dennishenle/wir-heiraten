@@ -13,7 +13,9 @@ import MobileMenu from "./MobileMenu.astro";
     <nav class="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
         <HeaderLogo />
         <DesktopNav />
-        <DarkModeToggle />
+        <div class="hidden xl:block">
+            <DarkModeToggle />
+        </div>
         <MobileHamburger />
     </nav>
 </header>
