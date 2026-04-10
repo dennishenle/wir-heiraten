@@ -55,4 +55,10 @@ export const infoItems: InfoItem[] = [
 		description:
 			"Bitte teilt uns Allergien oder Unverträglichkeiten vorab mit.",
 	},
+	{
+		emoji: "🍸️",
+		title: "Lasst es euch gut gehen",
+		description:
+			"It's a celebration... Sloppy drunk will be tolerated 😂 - Yvonne",
+	},
 ];
