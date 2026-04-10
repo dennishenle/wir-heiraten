@@ -1,46 +1,77 @@
-# Astro Starter Kit: Basics
+# Wir heiraten 💍
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+A beautiful, single-page wedding website built with Astro and Tailwind CSS.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚀 Tech Stack
 
-## 🚀 Project Structure
+- **Framework:** [Astro 6](https://astro.build/)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **Language:** TypeScript
+- **Deployment:** GitHub Pages
 
-Inside of your Astro project, you'll see the following folders and files:
+## ✨ Features
+
+- **Single Page Design:** A seamless scrolling experience across all sections.
+- **Responsive Layout:** Fully optimized for both mobile and desktop devices.
+- **Interactive Elements:**
+  - Countdown timer to the big day.
+  - RSVP form with Google Apps Script integration and local state persistence.
+  - Smooth navigation with a sticky header.
+  - Mobile-friendly menu and back-to-top functionality.
+- **Optimized Imagery:** Using Astro's `<Image />` component for automatic image optimization.
+
+## 🏗️ Project Structure
+
+The project follows a component-based architecture where each section of the page is encapsulated in its own directory under `src/components/`, containing both the Astro component and its corresponding data configuration file.
 
 ```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+src/
+├── assets/         # Images and static assets
+├── components/     # Section components (Header, Hero, Timeline, RSVP, etc.)
+├── layouts/        # Page layout wrapper
+├── pages/          # Single entry point (index.astro)
+└── styles/         # Global CSS and theme tokens
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🛠️ Getting Started
 
-## 🧞 Commands
+### Prerequisites
 
-All commands are run from the root of the project, from a terminal:
+- **Node.js:** >= 22.12.0
+- **pnpm:** 10.33.0
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+### Installation
 
-## 👀 Want to learn more?
+```sh
+pnpm install
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### Development
+
+Start the local development server:
+
+```sh
+pnpm dev
+```
+
+The site will be available at `http://localhost:4321`.
+
+### Build
+
+Generate the production build:
+
+```sh
+pnpm build
+```
+
+Preview the production build locally:
+
+```sh
+pnpm preview
+```
+
+## 🌐 Deployment
+
+This project is automatically deployed to GitHub Pages via GitHub Actions. Pushing changes to the `main` branch triggers the build and deployment process.
+
+URL: [https://dennishenle.github.io/wir-heiraten](https://dennishenle.github.io/wir-heiraten)
