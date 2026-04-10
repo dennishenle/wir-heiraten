@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@variant dark (&:where(.dark, .dark *));
-
 /* ─── Theme tokens ──────────────────────────────────────────────────────────── */
 
 @theme {
@@ -20,32 +18,23 @@
 	--font-body: "Lato", sans-serif;
 }
 
-/* ─── Dark mode token overrides ─────────────────────────────────────────────── */
+/* ─── Dark mode token overrides ─────────────────────────────────────────────
+   Driven entirely by the OS/browser preference — no manual toggle.
+   ──────────────────────────────────────────────────────────────────────────── */
 
-.dark {
-	--color-cream: #1a1714;
-	--color-cream-dark: #211e1a;
-	--color-text: #f0ebe3;
-	--color-text-light: #b8b4b1;
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-cream: #1a1714;
+		--color-cream-dark: #211e1a;
+		--color-text: #f0ebe3;
+		--color-text-light: #b8b4b1;
+	}
 }
 
 /* ─── Base resets & defaults ────────────────────────────────────────────────── */
 
 html {
 	scroll-behavior: smooth;
-}
-
-/* ─── Theme transition ───────────────────────────────────────────────────────
-   Applied briefly during theme toggle to animate color changes smoothly.
-   ──────────────────────────────────────────────────────────────────────────── */
-
-.theme-transitioning,
-.theme-transitioning * {
-	transition:
-		background-color 300ms ease,
-		color 300ms ease,
-		border-color 300ms ease,
-		fill 300ms ease !important;
 }
 
 /* ─── Section utilities ─────────────────────────────────────────────────────
