@@ -1,5 +1,9 @@
+---
+const { class: className = "text-white/85 hover:text-white group-[.scrolled]/header:text-text/75 group-[.scrolled]/header:hover:text-text" } = Astro.props;
+---
+
 <button
-    class="dark-mode-toggle p-2 transition-colors text-white/85 hover:text-white group-[.scrolled]/header:text-text/75 group-[.scrolled]/header:hover:text-text"
+    class:list={["dark-mode-toggle p-2 transition-colors", className]}
     aria-label="Dunkelmodus umschalten"
 >
     <!-- Moon: shown in light mode, click to enable dark -->
