@@ -9,7 +9,7 @@ export const schedule: ScheduleStep[] = [
 		time: "15:30",
 		title: "Empfang der Gäste",
 		description:
-			"Ankunft und Begrüßung beim Bleichestadels.",
+			"Ankunft und Begrüßung beim Bleichestadel.",
 	},
 	{
 		time: "16:00",
@@ -25,7 +25,7 @@ export const schedule: ScheduleStep[] = [
 	},
 	{
 		time: "18:30",
-		title: "Dinner + Aktivitäten",
+		title: "Dinner & Aktivitäten",
 		description:
 			"Live Grilling, Desserts und Torte — lasst es euch schmecken!",
 	},
