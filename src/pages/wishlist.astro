@@ -1,0 +1,29 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import HeartDivider from "@/components/love-story/HeartDivider.astro";
+---
+
+<Layout title="Wunschliste – bald verfügbar">
+	<section class="section-padding flex min-h-screen flex-col items-center justify-center text-center">
+		<h1 class="section-title">Wunschliste</h1>
+
+		<HeartDivider />
+
+		<p class="mb-4 max-w-xl font-heading text-2xl italic text-primary">
+			🎁 Noch in der Verpackung!
+		</p>
+
+		<p class="mb-6 max-w-prose text-text-light">
+			Unsere Amazon-Wunschliste befindet sich noch im Rohbau — das Schleifenbinden dauert
+			bekanntlich am längsten. Wir bitten um Geduld (und vielleicht noch um ein Glas Sekt 🥂).
+			Schaut bald wieder vorbei!
+		</p>
+
+		<a
+			href={`${import.meta.env.BASE_URL}#registry`}
+			class="inline-block rounded-full bg-primary px-6 py-3 font-body font-bold text-cream transition-opacity hover:opacity-80"
+		>
+			Zurück zur Startseite
+		</a>
+	</section>
+</Layout>
