@@ -1,5 +1,10 @@
 ---
 import "../styles/global.css";
+
+interface Props {
+	title?: string;
+}
+const { title = "Wir heiraten!" } = Astro.props;
 ---
 
 <!doctype html>
@@ -23,7 +28,7 @@ import "../styles/global.css";
 			rel="stylesheet"
 		/>
 
-		<title>Wir heiraten!</title>
+		<title>{title}</title>
 
 		<meta name="color-scheme" content="light dark" />
 	</head>
