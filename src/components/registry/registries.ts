@@ -10,7 +10,7 @@ export const registries: Registry[] = [
 	{
 		name: "Amazon",
 		imageUrl: "https://picsum.photos/seed/registry-amazon/400/200",
-		href: "#",
+		href: `${import.meta.env.BASE_URL}wishlist`,
 		linkLabel: "Auf zur Wunschliste"
 	},
 	{
