@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # AGENT files
 AGENT/
+
+# Claude plans
+.claude/plans/
