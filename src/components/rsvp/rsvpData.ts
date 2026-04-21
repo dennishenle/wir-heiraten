@@ -1,8 +1,7 @@
 export const mealOptions = [
 	{ value: "", label: "Bitte auswählen" },
-	{ value: "meat", label: "Fleisch" },
-	{ value: "fish", label: "Fisch" },
 	{ value: "vegetarian", label: "Vegetarisch" },
+	{ value: "meat-eater", label: "Nicht Vegetarisch" }
 ];
 
 export const attendanceOptions = [
