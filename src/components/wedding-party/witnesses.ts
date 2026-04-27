@@ -1,4 +1,4 @@
-import agnesProfilePlaceholder from "@/assets/agnes-profile-placeholder.png";
+import agnes from "@/assets/agnes.jpg";
 import robin from "@/assets/robin.jpg";
 
 export type PartyMember = {
@@ -11,7 +11,7 @@ export type PartyMember = {
 export const bridesmaid: PartyMember = {
 	name: "Agnes Eberhardt",
 	description: "Beste Freundin seit der Schulzeit — hält die Nerven.",
-	image: agnesProfilePlaceholder,
+	image: agnes,
 	alt: "Porträt Agnes Eberhardt",
 };
 
