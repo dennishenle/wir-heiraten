@@ -5,6 +5,6 @@ export const mealOptions = [
 ];
 
 export const attendanceOptions = [
-	{ value: "accept", label: "Nimmt freudig an" },
+	{ value: "accept", label: "Sage freudig zu" },
 	{ value: "decline", label: "Muss leider absagen" },
 ];

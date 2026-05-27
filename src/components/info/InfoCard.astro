@@ -4,9 +4,16 @@ interface Props {
 	title: string;
 	description: string;
 	url?: string;
+	urlLabel?: string;
 }
 
-const { emoji, title, description, url } = Astro.props;
+const {
+	emoji,
+	title,
+	description,
+	url,
+	urlLabel = "In Google Maps öffnen",
+} = Astro.props;
 ---
 
 <article
@@ -22,9 +29,9 @@ const { emoji, title, description, url } = Astro.props;
 				target="_blank"
 				rel="noopener noreferrer"
 				class="mt-3 inline-flex items-center justify-center gap-1 text-sm font-medium text-primary transition-colors hover:text-primary-light"
-				aria-label={`${title}: In Google Maps öffnen`}
+				aria-label={`${title}: ${urlLabel}`}
 			>
-				In Google Maps öffnen
+				{urlLabel}
 			</a>
 		)
 	}
