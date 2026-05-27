@@ -1,3 +1,4 @@
+// NOTE: The FAQ section has been removed from the website and is no longer rendered in src/pages/index.astro.
 export interface FaqItem {
 	question: string;
 	answer: string;

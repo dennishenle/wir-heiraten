@@ -18,6 +18,6 @@ export const registries: Registry[] = [
 		imageUrl: "https://picsum.photos/seed/registry-cash/400/200",
 		href: "#",
 		linkLabel: "",
-		description: "Der größte Wunsch ist, diesen Tag mit euch zu feiern! Wer uns darüber hinaus eine Freude machen möchte, darf gerne zur Hochzeit ein Geldgeschenk mitbringen."
+		description: "Über einen kleinen Beitrag in Form eines Geldgeschenks freuen wir uns sehr – damit erfüllen wir uns gemeinsame Erlebnisse und Reisen."
 	},
 ];

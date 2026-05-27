@@ -47,7 +47,7 @@ export const infoItems: InfoItem[] = [
 		emoji: "👶",
 		title: "Kinder willkommen",
 		description:
-			"Kinder sind herzlich eingeladen — ein kleiner Spielbereich ist vorhanden.",
+			"Kinder sind herzlich eingeladen — bitte gebt bei eurer Zusage Bescheid, ob ihr eure Kleinen mitbringt.",
 	},
 	{
 		emoji: "🥗",

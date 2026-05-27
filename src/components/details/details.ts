@@ -15,9 +15,9 @@ export const ceremony = {
         { icon: "clock" as const, text: "11:00 Uhr" },
         {
             icon: "pin" as const,
-            text: "Marienpl. 26, 88212 Ravensburg",
+            text: "Marienplatz 26, 88212 Ravensburg",
         },
-        { icon: "hourglass" as const, text: "ca. 90 Minuten" },
+        { icon: "hourglass" as const, text: "ca. 60 Minuten" },
     ],
     directionsUrl: "https://maps.app.goo.gl/HXq8DvmUcE6eKpir7",
 };
@@ -33,7 +33,7 @@ export const reception = {
             icon: "pin" as const,
             text: "Ob. Bleiche 1, 89423 Gundelfingen an der Donau",
         },
-        { icon: "music" as const, text: "DJ" }, // TODO: Name vom DJ eintragen
+        { icon: "music" as const, text: "DJ Patrick" },
     ],
     directionsUrl: "https://maps.app.goo.gl/8BaTxjR92YDfQPuA6",
 };
