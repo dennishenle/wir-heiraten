@@ -16,9 +16,13 @@ Deployment is automatic: pushing to `main` triggers a GitHub Actions workflow th
 
 ## Architecture
 
-This is a single-page Astro wedding website ("Wir heiraten" = "We're getting married"). It uses Astro 6 with Tailwind CSS v4 (via the `@tailwindcss/vite` plugin — there is no `tailwind.config.js`).
+This is an Astro wedding website ("Wir heiraten" = "We're getting married") with all content in German. It uses Astro 6 with Tailwind CSS v4 (via the `@tailwindcss/vite` plugin — there is no `tailwind.config.js`).
 
-**Page composition:** `src/pages/index.astro` is the only page. It imports and renders all section components in order: `Header → Hero → LoveStory → Timeline → WeddingDetails → DayTimeline → ImportantInfo → WeddingParty → Registry → RSVP → FAQ → Contact → Footer`.
+**Pages:** Two pages exist under `src/pages/`:
+- `index.astro` — the main one-page site. It imports and renders all section components in order: `Header → Hero → LoveStory → Timeline → WeddingDetails → DayTimeline → ImportantInfo → WeddingParty → Registry → RSVP → FAQ → Contact → Footer`.
+- `wishlist.astro` — a standalone placeholder page for the Amazon wishlist, linked from the Registry section.
+
+**Internal links:** The site is deployed at the sub-path `/wir-heiraten`. All internal `href` values must be prefixed with `import.meta.env.BASE_URL` (e.g. `` `${import.meta.env.BASE_URL}/wishlist` ``). Never use bare `/` paths for page links.
 
 **Component structure:** Each section lives in its own folder under `src/components/`. Every folder follows the same pattern:
 - One or more `.astro` files (the section and its sub-components)
@@ -30,13 +34,15 @@ All section components are re-exported from `src/components/index.ts` and import
 
 **Client-side interactivity:** All dynamic behaviour uses vanilla JS in inline `<script>` blocks — there is no JS framework. Components use standard DOM APIs (`classList`, `addEventListener`, `getElementById`) for things like the header scroll effect, mobile menu toggle, countdown timer, and back-to-top button.
 
-**RSVP form:** Posts to a Google Apps Script endpoint via `fetch`. Submission state is persisted in `localStorage` under the key `rsvp_sent`. Client-side validation toggles visibility of error messages via `data-error` attributes and `classList`.
+**RSVP form:** Posts to a Google Apps Script endpoint via `fetch` with `mode: 'no-cors'` (Apps Script doesn't support CORS; responses are always opaque so success is assumed after sending). The endpoint URL is hardcoded in `RSVPForm.astro`. Submission state is persisted in `localStorage` under the key `rsvp_sent`. Client-side validation toggles visibility of error messages via `data-error` attributes and `classList`.
 
 **Navigation:** Every section has an `id` attribute. `navLinks.ts` uses hash hrefs (`#story`, `#timeline`, etc.) and `global.css` sets `scroll-behavior: smooth` on `<html>`.
 
 **Responsive layout:** Mobile and desktop variants are split using Tailwind's responsive prefixes (`md:hidden` / `hidden md:block`). Some components (e.g., Timeline) have entirely separate sub-components for each breakpoint.
 
 **Layout:** `src/layouts/Layout.astro` provides the HTML shell, loads Google Fonts (Playfair Display + Lato), and applies base body styles.
+
+**Dark mode:** The site has OS-driven dark mode via `@media (prefers-color-scheme: dark)` in `global.css`. Only the neutral tokens (`cream`, `text`) are swapped — the accent colors (`primary`, `secondary`) stay constant in both modes. There is no manual toggle.
 
 **Styling:** Theme tokens (colors, fonts) are defined in the `@theme` block in `src/styles/global.css`. Two shared CSS utilities are defined there:
 - `section-padding` — consistent vertical/horizontal padding for every section
