@@ -18,7 +18,7 @@ export const schedule: ScheduleStep[] = [
 			"Die feierliche Zeremonie unter freiem Himmel — bitte nehmt rechtzeitig Platz.",
 	},
 	{
-		time: "17:00",
+		time: "16:30",
 		title: "Sektempfang & Gratulation",
 		description:
 			"Stoßt mit uns an und genießt kleine Häppchen, während wir Fotos machen.",
@@ -39,6 +39,6 @@ export const schedule: ScheduleStep[] = [
 		time: "21:00",
 		title: "Party, Party, Party - 'til we drop",
 		description:
-			"Gute Musik und kalte Getränke erwarten euch.",
+			"Gute Musik und leckere Drinks erwarten euch.",
 	},
 ];

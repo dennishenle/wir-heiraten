@@ -6,6 +6,5 @@ export const navLinks = [
     { href: "#party", label: "Trauzeugen" },
     { href: "#registry", label: "Geschenke" },
     { href: "#rsvp", label: "Zusagen" },
-    { href: "#faq", label: "FAQ" },
     { href: "#contact", label: "Kontakt" },
 ];
