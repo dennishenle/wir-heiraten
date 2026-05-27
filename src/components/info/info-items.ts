@@ -4,6 +4,8 @@ export interface InfoItem {
 	description: string;
 	/** Optional external link (e.g. Google Maps). */
 	url?: string;
+	/** Label for the link. Defaults to "In Google Maps öffnen". */
+	urlLabel?: string;
 }
 
 export const infoItems: InfoItem[] = [
@@ -32,10 +34,12 @@ export const infoItems: InfoItem[] = [
 			"Plus-Ones sind herzlich willkommen — bitte gebt bei eurer Zusage Bescheid.",
 	},
 	{
-		emoji: "📸",
-		title: "Fotografie",
+		emoji: "🏨",
+		title: "Hotel",
 		description:
-			"Wir haben einen Fotografen — genießt den Moment und legt das Handy beiseite.",
+			"Wir haben im Lobinger Parkhotel in Giengen ein Zimmerkontingent reserviert. Details findet ihr auf eurer Einladung.",
+		url: "https://lobinger-hotels.de/parkhotel/hotel/das-hotel",
+		urlLabel: "Zur Hotel-Website",
 	},
 	{
 		emoji: "🎁",
@@ -56,9 +60,9 @@ export const infoItems: InfoItem[] = [
 			"Bitte teilt uns Allergien oder Unverträglichkeiten vorab mit.",
 	},
 	{
-		emoji: "🍸️",
-		title: "Lasst es euch gut gehen",
+		emoji: "📸",
+		title: "Fotografie",
 		description:
-			"It's a celebration... Sloppy drunk will be tolerated 😂 - Yvonne",
+			"Wir haben einen Fotografen — genießt den Moment und legt das Handy beiseite.",
 	},
 ];
