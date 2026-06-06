@@ -10,7 +10,7 @@ export type PartyMember = {
 
 export const bridesmaid: PartyMember = {
 	name: "Agnes Eberhardt",
-	description: "Beste Freundin seit der Schulzeit — hält die Nerven.",
+	description: "Beste Freundin seit dem Kindergarten — hält die Nerven.",
 	image: agnes,
 	alt: "Porträt Agnes Eberhardt",
 };
