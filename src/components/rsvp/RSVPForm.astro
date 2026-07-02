@@ -24,22 +24,6 @@ const inputClasses =
 	</RSVPField>
 
 	<RSVPField
-		label="E-Mail-Adresse"
-		htmlFor="rsvp-email"
-		errorName="email"
-		errorMessage="Bitte gib eine gültige E-Mail-Adresse ein."
-		required
-	>
-		<input
-			type="email"
-			id="rsvp-email"
-			name="email"
-			required
-			class={inputClasses}
-		/>
-	</RSVPField>
-
-	<RSVPField
 		label="Anzahl der Gäste"
 		htmlFor="rsvp-guests"
 		errorName="guests"
@@ -100,19 +84,13 @@ const inputClasses =
 	</RSVPField>
 
 	<RSVPField label="Unverträglichkeiten / Allergien" htmlFor="rsvp-dietary">
-		<textarea
-			id="rsvp-dietary"
-			name="dietary"
-			rows="2"
-			class={inputClasses}></textarea>
+		<textarea id="rsvp-dietary" name="dietary" rows="2" class={inputClasses}
+		></textarea>
 	</RSVPField>
 
 	<RSVPField label="Nachricht an das Brautpaar" htmlFor="rsvp-message">
-		<textarea
-			id="rsvp-message"
-			name="message"
-			rows="3"
-			class={inputClasses}></textarea>
+		<textarea id="rsvp-message" name="message" rows="3" class={inputClasses}
+		></textarea>
 	</RSVPField>
 
 	<div class="text-center">
@@ -168,12 +146,6 @@ const inputClasses =
 			valid = false;
 		}
 
-		const email = data.get("email")?.toString().trim() ?? "";
-		if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-			showError("email");
-			valid = false;
-		}
-
 		const guests = Number(data.get("guests"));
 		if (!guests || guests < 1) {
 			showError("guests");
@@ -202,7 +174,6 @@ const inputClasses =
 				headers: { "Content-Type": "text/plain" },
 				body: JSON.stringify({
 					name: data.get("name"),
-					email: data.get("email"),
 					guests: data.get("guests"),
 					attendance: data.get("attendance"),
 					meal: data.get("meal"),
